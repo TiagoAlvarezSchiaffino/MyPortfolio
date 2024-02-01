@@ -1,0 +1,130 @@
+---
+import NextJS from "./icons/NextJS.astro"
+import ReactJS from "./icons/ReactJS.astro"
+import Sass from "./icons/Sass.astro"
+import Zustand from "./icons/Zustand.astro"
+import TypeScript from "./icons/TypeScript.astro"
+import NestJS from "./icons/NestJS.astro"
+import Redis from "./icons/Redis.astro"
+import SocketIO from "./icons/SocketIO.astro"
+import MongoDB from "./icons/MongoDB.astro"
+import NodeJS from "./icons/NodeJS.astro"
+import ExpressJS from "./icons/ExpressJS.astro"
+import MaterialUI from "./icons/MaterialUI.astro"
+import ViteJS from "./icons/ViteJS.astro"
+
+const TAGS = {
+  REACT: {
+    name: "React.js",
+    class: "bg-black text-white",
+    icon: ReactJS,
+  },
+  SASS: {
+    name: "Sass",
+    class: "bg-black text-white",
+    icon: Sass,
+  },
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  ZUSTAND: {
+    name: "Zustand",
+    class: "bg-[#003159] text-white",
+    icon: Zustand,
+  },
+  TYPESCRIPT: {
+    name: "Typescript",
+    class: "bg-[#003159] text-white",
+    icon: TypeScript,
+  },
+  NEST: {
+    name: "Nest.js",
+    class: "bg-[#003159] text-white",
+    icon: NestJS,
+  },
+  REDIS: {
+    name: "Redis",
+    class: "bg-[#003159] text-white",
+    icon: Redis,
+  },
+  SOCKET: {
+    name: "Socket.io",
+    class: "bg-[#003159] text-white",
+    icon: SocketIO,
+  },
+  MONGO: {
+    name: "MongoDB",
+    class: "bg-[#003159] text-white",
+    icon: MongoDB,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-[#003159] text-white",
+    icon: NodeJS,
+  },
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-[#003159] text-white",
+    icon: ExpressJS,
+  },
+  MaterialUI: {
+    name: "Material.ui",
+    class: "bg-[#003159] text-white",
+    icon: MaterialUI,
+  },
+  VITE: {
+    name: "Vite.js",
+    class: "bg-[#003159] text-white",
+    icon: ViteJS,
+  },
+}
+
+const PROJECTS = [
+  {
+    title: "Wave",
+    description:
+      "Meet people who share similar interests and make friends or something more. Create an avatar based on your preferences and only share photos with your matches, strengthening and making more personal",
+    link: "https://front-wave.vercel.app/",
+    github: "https://github.com/No-Country/s10-17-ft-js-ts",
+    image: "/projects/832shots_so.webp",
+    tags: [TAGS.REACT, TAGS.NEXT, TAGS.SASS, TAGS.ZUSTAND, TAGS.TYPESCRIPT, TAGS.NEST, TAGS.REDIS, TAGS.SOCKET, TAGS.MONGO],
+  },
+  {
+    title: "Pocketpal",
+    description:
+      "Digital wallet to solve your financial problems. Forget the possibility of losing your cards or had cash on. With just a few simple taps, you can deposit money, transfer, check your balance and more",
+    link: "https://pocket-pal-brown.vercel.app/",
+    github: "https://github.com/No-Country/c12-36-ft-reactnative",
+    image: "/projects/434shots_so.webp",
+    tags: [TAGS.REACT, TAGS.MaterialUI, TAGS.VITE, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGO],
+  }
+]
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${image}`}
+      />
+    </article>
+  ))
+}

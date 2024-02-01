@@ -1,9 +1,80 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Badge from "../components/Badge.astro"
+import Briefcase from "../components/icons/Briefcase.astro"
 import Card from '../components/Card.astro';
+import CodeIcon from "../components/icons/Code.astro"
+import Experience from "../components/Experience.astro"
+import GitHubIcon from "../components/icons/GitHub.astro"
 import Header from '../components/Header.astro'
+import Layout from '../layouts/Layout.astro';
+import LinkedInIcon from "../components/icons/LinkedIn.astro"
+import MailIcon from "../components/icons/Mail.astro"
+import Projects from "../components/Projects.astro"
+import Rotation from "../components/icons/Rotation.astro"
+import SectionContainer from "../components/SectionContainer.astro"
+import SocialPill from "../components/SocialPill.astro"
 ---
 
-<Layout title="Welcome to Astro.">
-	<main></main>
+<Layout title="Tiago Alvarez Schiaffino Portfolio - Developer">
+	<main class="px-4">
+		<SectionContainer id="home" class="py-44 pb-32">
+		  <img
+			class="rounded-full size-12 mb-4"
+			src="https://avatars.githubusercontent.com/u/111491059?v=4"
+			alt="tiago photo"
+		  />
+		  <h1
+			class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+		  >
+			Hey, everyone. Tiago, here for you! <a
+			  href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/"
+			  target="_blank"
+			  rel="noopener"
+			  class="flex justify-center items-center"
+			>
+			  <Badge>I'm open to work</Badge>
+			</a>
+		  </h1>
+		  <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+			<span>Dedicated to doing... </span><span class="text-yellow-200/90">
+				Full-Stack Developer, Game Animator & Developer and Photo & Video Editing Expert</span
+			>
+			 .<span class="text-red-200/90"> From Buenos Aires, Argentina</span>.
+			<span class="opacity-75"
+			  >Live to Code.</span
+			>
+		  </h2>
+	
+		  <nav class="flex gap-4 mt-8 flex-wrap">
+			<SocialPill href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/">
+			  <LinkedInIcon class="size-4 md:size-6" />
+			   LinkedIn
+			</SocialPill>
+			<SocialPill href="https://github.com/TiagoAlvarezSchiaffino">
+			  <GitHubIcon class="size-4 md:size-6" />
+			   GitHub
+			</SocialPill>
+			<SocialPill href="mailto:tiagoalvarezschiaffino@gmail.com">
+			  <MailIcon class="size-4 md:size-6" />
+			   tiagoalvarezschiaffino@gmail.com
+			</SocialPill>
+		  </nav>
+		</SectionContainer>
+	
+		<SectionContainer id="work">
+		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+			<Briefcase class="size-7" />
+			 Work Experience
+		  </h2>
+		  <Experience />
+		</SectionContainer>
+	
+		<SectionContainer id="projects">
+		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+			<CodeIcon class="size-7" />
+			 Projects
+		  </h2>
+		  <Projects />
+		</SectionContainer>
+	  </main>
 </Layout>

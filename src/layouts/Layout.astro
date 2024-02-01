@@ -1,41 +1,64 @@
 ---
-import Header from '../components/Header.astro';
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+
 interface Props {
-	title: string;
+  title: string
+  description: string
 }
 
-const { title } = Astro.props;
+const { description, title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<Header />
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <div>
+      <div class="border-10px-solid bg-[#4343E7]">
+        <div class="bg-[#4343E7]">
+        </div>
+        <Header />
+        <slot />
+        <Footer />
+      </div>
+    </div>
+  </body>
 </html>
 
 <style is:global>
-	:root {
-		color-scheme: light dark;
-		;
-	}
+  :root {
+    color-scheme: light dark;
+  }
 
-	html {
-		background-color: #000;
-		font-family: system-ui, sans-serif;
-	}
+  html {
+    font-family: 'Sixtyfour', sans-serif;
+    scroll-behavior: smooth;
+  }
 
-	body {
-		display: flex;
-		justify-content: center;
-	}
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+	margin: 0;
+  }
+
+  .border-10px-solid {
+    border: 25px solid #A5A5FF;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 </style>
