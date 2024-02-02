@@ -20,41 +20,42 @@ import SocialPill from "../components/SocialPill.astro"
 		<SectionContainer id="home" class="py-44 pb-32">
 		  <img
 			class="rounded-full size-12 mb-4"
-			src="https://avatars.githubusercontent.com/u/111491059?v=4"
-			alt="tiago photo"
+			src="../../public/UserPhoto.png"
+			alt="Tiago photo"
+			aria-label="Tiago profile picture"
 		  />
 		  <h1
 			class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
 		  >
 			Hey, everyone. Tiago, here for you! <a
 			  href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/"
+			  aria-label="LinkedIn"
 			  target="_blank"
 			  rel="noopener"
 			  class="flex justify-center items-center"
 			>
-			  <Badge>I'm open to work</Badge>
+			  <Badge>I'M OPEN TO WORK</Badge>
 			</a>
 		  </h1>
-		  <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-			<span>Dedicated to doing... </span><span class="text-yellow-200/90">
-				Full-Stack Developer, Game Animator & Developer and Video Editor</span
-			>
-			 .<span class="text-red-200/90"> From Buenos Aires, Argentina</span>.
-			<span class="opacity-75"
-			  >Live to Code.</span
+		  <h2 class="text-xl lg:text-2xl text-balance max-w-[700px]">
+			<span class="text-white-200/90">Dedicated to doing... <br></span><span class="text-yellow-200/90">
+				Full-Stack Developer, Game Animator & Developer and Video Editor.</span
+			><br>
+			<span class="text-red-200/90"> From Buenos Aires, Argentina.</span>
+			<span class="text-white-200/90">Live to Code.</span
 			>
 		  </h2>
 	
 		  <nav class="flex gap-4 mt-8 flex-wrap">
-			<SocialPill href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/">
+			<SocialPill href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/" aria-label="LinkedIn">
 			  <LinkedInIcon class="size-4 md:size-6" />
 			   LinkedIn
 			</SocialPill>
-			<SocialPill href="https://github.com/TiagoAlvarezSchiaffino">
+			<SocialPill href="https://github.com/TiagoAlvarezSchiaffino" aria-label="GitHub">
 			  <GitHubIcon class="size-4 md:size-6" />
 			   GitHub
 			</SocialPill>
-			<SocialPill href="mailto:tiagoalvarezschiaffino@gmail.com">
+			<SocialPill href="mailto:tiagoalvarezschiaffino@gmail.com" aria-label="Mail">
 			  <MailIcon class="size-4 md:size-6" />
 			   tiagoalvarezschiaffino@gmail.com
 			</SocialPill>
