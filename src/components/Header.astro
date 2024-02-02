@@ -1,30 +1,80 @@
 <script>
-  const $navAElements: Element[] = [...document.querySelectorAll('header nav a')];
-  const sectionElements: HTMLDivElement[] = $navAElements.map(a => {
-    const selectionForSection = a.getAttribute('href')?.substring(1);
-    return document.querySelector(selectionForSection || '') as HTMLDivElement;
-  });
+function createNavElement(link) {
+  const aElement = document.createElement('a')
+  aElement.classList.add(
+    'hover:bg-white/20',
+    'text-black',
+    'rounded-full',
+    'px-2',
+    'transition',
+    'sm:px-3',
+    'text-sm',
+    'sm:text-base'
+  )
+  aElement.href = link.url
+  aElement.textContent = link.title
+  return aElement
+}
 
-  window.addEventListener('scroll', () => {
-    let activeSectionIndex = -1;
+const navItems = [
+  {
+    title: 'Home',
+    url: '/#home'
+  },
+  {
+    title: 'Work Experience',
+    url: '/#work'
+  },
+  {
+    title: 'Projects',
+    url: '/#projects'
+  },
+  {
+    title: 'About',
+    url: '/#about'
+  },
+  {
+    title: 'Contact',
+    url: '/#contact'
+  }
+]
 
-    sectionElements.forEach((sectionElement, index) => {
-      if (!sectionElement) return;
+const $navContainer = document.querySelector('header nav')
 
-      const selectionTop = sectionElement.offsetTop - 150;
-      const selectionBottom = selectionTop + sectionElement.clientHeight;
-      const isSectionActive = window.scrollY >= selectionTop && window.scrollY < selectionBottom;
+// Verificar si ya hay elementos en el contenedor antes de agregar nuevos
+if ($navContainer && $navContainer.children.length === 0) {
+  navItems.forEach(link => {
+    const navElement = createNavElement(link)
+    $navContainer.appendChild(navElement)
+  })
+}
 
-      if (isSectionActive) {
-        activeSectionIndex = index;
-      }
-    });
+const $navAElements: Element[] = [...document.querySelectorAll('header nav a')]
+const sectionElements: HTMLDivElement[] = $navAElements.map(a => {
+  const selectionForSection = a.getAttribute('href')?.substring(1)
+  return document.querySelector(selectionForSection || '') as HTMLDivElement
+})
 
-    $navAElements.forEach((a, index) => {
-      const isActive = index === activeSectionIndex;
-      a.classList.toggle('bg-white/30', isActive);
-    });
-  });
+window.addEventListener('scroll', () => {
+  let activeSectionIndex = -1
+
+  sectionElements.forEach((sectionElement, index) => {
+    if (!sectionElement) return
+
+    const selectionTop = sectionElement.offsetTop - 150
+    const selectionBottom = selectionTop + sectionElement.clientHeight
+    const isSectionActive = window.scrollY >= selectionTop && window.scrollY < selectionBottom
+
+    if (isSectionActive) {
+      activeSectionIndex = index
+    }
+  })
+
+  $navAElements.forEach((a, index) => {
+    const isActive = index === activeSectionIndex
+    a.classList.toggle('bg-white/30', isActive)
+  })
+})
 </script>
 <header
   class="sticky top-0 flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto z-20"
