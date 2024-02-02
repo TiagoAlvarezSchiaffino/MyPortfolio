@@ -41,7 +41,6 @@ const navItems = [
 
 const $navContainer = document.querySelector('header nav')
 
-// Verificar si ya hay elementos en el contenedor antes de agregar nuevos
 if ($navContainer && $navContainer.children.length === 0) {
   navItems.forEach(link => {
     const navElement = createNavElement(link)
