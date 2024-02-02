@@ -9,6 +9,12 @@ Currently exploring the German language and on my breaks doing things like, Moti
 I enjoy spending time collaborating with people in any environment, building relationships along the way.
 Open to work and seeking new opportunities! Contact me without any problem.
 
+## Design Inspiration
+
+The design and interface are inspired by the aesthetics of the 'Commodore 64' or 'THEC64' from the 80s, blending nostalgia with modern web development.
+
+For more information about the Commodore 64, you can check out [retrogames.biz](https://retrogames.biz/products/thec64/).
+
 ## Skills
 
 I have many tools and technologies that I used to every day or on certain projects, but these are my stack:
