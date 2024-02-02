@@ -1,11 +1,31 @@
 <header
-  class="sticky top-0 bg-[#4343E7] flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto z-10"
+  class="sticky top-0 flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto z-20"
 >
-  <nav class="flex flex-row gap-x-10 opacity-80">
-    <a href="#home">Home</a>
-    <a href="#work">Work Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+  <nav class={`
+    border border-black
+    px-2 py-1
+    flex flex-row
+    bg-white/50
+    backdrop-blur-2xl
+  `}
+>
+    <a 
+      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
+      href="/#home">Home</a>
+    
+    <a 
+      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
+      href="/#work">Work Experience</a>
+
+    <a 
+      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
+      href="/#projects">Projects</a>
+    <a 
+      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
+      href="/#about">About</a>
+
+    <a 
+      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
+      href="/#contact">Contact</a>
   </nav>
 </header>
