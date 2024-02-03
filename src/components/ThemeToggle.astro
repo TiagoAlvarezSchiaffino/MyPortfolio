@@ -1,7 +1,7 @@
 ---
-import SunIcon from "./icons/Sun.astro"
-import MoonIcon from "./icons/Moon.astro"
-import SystemIcon from "./icons/System.astro"
+import Sun from "./icons/Sun.astro"
+import Moon from "./icons/Moon.astro"
+import System from "./icons/System.astro"
 
 const THEMES = ["Light", "Dark", "System"]
 ---
@@ -11,13 +11,13 @@ const THEMES = ["Light", "Dark", "System"]
     id="theme-toggle-btn"
     class="appearance-none border-none flex hover:scale-125 transition"
   >
-    <span class="sr-only">Elige el tema</span>
-    <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
-    <MoonIcon
+    <span class="sr-only">Select theme</span>
+    <Sun id="light" class="theme-toggle-icon size-5 transition-all" />
+    <Moon
       id="dark"
       class="theme-toggle-icon absolute size-5 transition-all"
     />
-    <SystemIcon
+    <System
       id="system"
       class="theme-toggle-icon absolute size-5 transition-all"
     />
