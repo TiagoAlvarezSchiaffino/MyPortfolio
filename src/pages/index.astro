@@ -1,79 +1,38 @@
 ---
-import Aboutme from "@/components/Aboutme.astro"
-import Badge from "@/components/Badge.astro"
+import Aboutme from "@/components/AboutMe.astro"
+import Book from "@/components/icons/Book.astro"
 import Briefcase from "@/components/icons/Briefcase.astro"
-import Card from '@/components/Card.astro';
+import Contact from "@/components/Contact.astro"
 import CodeIcon from "@/components/icons/Code.astro"
 import Experience from "@/components/Experience.astro"
-import GitHubIcon from "@/components/icons/GitHub.astro"
-import Header from '@/components/Header.astro'
-import Layout from '@/layouts/Layout.astro';
-import LinkedInIcon from "@/components/icons/LinkedIn.astro"
-import MailIcon from "@/components/icons/Mail.astro"
+import Hero from "@/components/Hero.astro"
+import Layout from '@/layouts/Layout.astro'
 import Profile from "@/components/icons/Profile.astro"
 import Projects from "@/components/Projects.astro"
-import Rotation from "@/components/icons/Rotation.astro"
+import Messages from "@/components/icons/Messages.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
-import SocialPill from "@/components/SocialPill.astro"
+import Skills from "@/components/Skills.astro"
 ---
 
 <Layout title="Tiago Alvarez Schiaffino Portfolio - Developer" description="Creating the best solution for the worst problem">
 	<main class="px-4">
-		<SectionContainer id="home" class="py-44 pb-32">
-		  <img
-			class="rounded-full size-12 mb-4"
-			src="UserPhoto.png"
-			alt="Tiago photo"
-			aria-label="Tiago profile picture"
-		  />
-		  <h1
-			class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-		  >
-			Hey, everyone. Tiago, here for you! <a
-			  href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/"
-			  aria-label="LinkedIn"
-			  target="_blank"
-			  rel="noopener"
-			  class="flex justify-center items-center hover:scale-110 transition"
-			>
-			  <Badge>I'M OPEN TO WORK</Badge>
-			</a>
-		  </h1>
-		  <h2 class="text-xl lg:text-2xl text-balance max-w-[700px]">
-			<span class="text-white-200/90">Dedicated to doing... <br></span><span class="text-yellow-200/90">
-				Full-Stack Developer, Game Animator & Developer and Video Editor.</span
-			><br>
-			<span class="text-red-200/90"> From Buenos Aires, Argentina.</span>
-			<span class="text-white-200/90">Live to Code.</span
-			>
-		  </h2>
-	
-		  <nav class="flex gap-4 mt-8 flex-wrap">
-			<SocialPill href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/" aria-label="LinkedIn">
-			  <LinkedInIcon class="size-4 md:size-6" />
-			   LinkedIn
-			</SocialPill>
-			<SocialPill href="https://github.com/TiagoAlvarezSchiaffino" aria-label="GitHub">
-			  <GitHubIcon class="size-4 md:size-6" />
-			   GitHub
-			</SocialPill>
-			<SocialPill href="mailto:tiagoalvarezschiaffino@gmail.com" aria-label="Mail">
-			  <MailIcon class="size-4 md:size-6" />
-			   tiagoalvarezschiaffino@gmail.com
-			</SocialPill>
-		  </nav>
+		<SectionContainer id="home" class="py-16 md:py-36">
+			<Hero>
+				</slot>
+			</Hero>
 		</SectionContainer>
-	
+
+		<div class="space-y-24">
 		<SectionContainer id="work">
-		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			<Briefcase class="size-7" />
+		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
+			<Briefcase class="size-8" />
 			 Work Experience
 		  </h2>
 		  <Experience />
 		</SectionContainer>
 	
 		<SectionContainer id="projects">
-		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
 			<CodeIcon class="size-7" />
 			 Projects
 		  </h2>
@@ -81,11 +40,28 @@ import SocialPill from "@/components/SocialPill.astro"
 		</SectionContainer>
 
 		<SectionContainer id="about">
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			  <Profile class="size-7" />
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-8 items-center text-black/80 dark:text-white">
+			  <Profile class="size-8" />
 			  About me
 			</h2>
 			<Aboutme />
 		  </SectionContainer>
+
+		  <SectionContainer id="skills">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
+			  <Book class="size-7" />
+			  Skills
+			</h2>
+			<Skills />
+		  </SectionContainer>
+
+		  <SectionContainer id="contact">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
+				<Messages class="size-7" />
+			  Contact
+			</h2>
+			<Contact />
+		  </SectionContainer> 
+		</div>
 	  </main>
 </Layout>
