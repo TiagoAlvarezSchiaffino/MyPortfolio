@@ -1,0 +1,70 @@
+<script>
+  let currentImageIndex;
+  let images;
+  let isPlaying = false;
+  let intervalId;
+
+  function handlePrevious() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    clearInterval(intervalId);
+    renderImage();
+  }
+
+  function handleHome() {
+    currentImageIndex = 0;
+    clearInterval(intervalId);
+    renderImage();
+  }
+
+  function handlePlay() {
+    if (isPlaying) {
+      clearInterval(intervalId);
+    } else {
+      intervalId = setInterval(handleNext, 3000);
+    }
+    isPlaying = !isPlaying;
+  }
+
+  function handleNext() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    clearInterval(intervalId);
+    renderImage();
+  }
+
+  function renderImage() {
+    const imgElement = document.getElementById("pixel-art");
+    imgElement.src = images[currentImageIndex];
+  }
+</script>
+
+<div class="flex justify-center gap-4">
+  <button onclick="handlePrevious()">
+    <img src="/pixel/Backward.png" alt="Previous" />
+  </button>
+  <button onclick="handleHome()">
+    <img src="/pixel/Home.png" alt="Home" />
+  </button>
+  <button onclick="handlePlay()">
+    <img src="/pixel/Play.png" alt="Play" />
+  </button>
+  <button onclick="handleNext()">
+    <img src="/pixel/Forward.png" alt="Next" />
+  </button>
+</div>
+
+<script>
+  // Array de imágenes
+  images = [
+    "/pixel/Me.png",
+    "/pixel/Dog.png",
+    "/pixel/Joystick.png",
+    "/pixel/Notebook.png",
+    "/pixel/KingChess.png",
+    "/pixel/Test.png",
+    "/pixel/Setup.png"
+  ]
+  
+  currentImageIndex = 0
+  
+  renderImage()
+</script>
