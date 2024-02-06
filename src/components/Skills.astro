@@ -1,0 +1,292 @@
+---
+import NextJS from "./icons/NextJS.astro"
+import ReactJS from "./icons/ReactJS.astro"
+import Sass from "./icons/Sass.astro"
+import Zustand from "./icons/Zustand.astro"
+import TypeScript from "./icons/TypeScript.astro"
+import NestJS from "./icons/NestJS.astro"
+import MongoDB from "./icons/MongoDB.astro"
+import NodeJS from "./icons/NodeJS.astro"
+import ExpressJS from "./icons/ExpressJS.astro"
+import MaterialUI from "./icons/MaterialUI.astro"
+import ViteJS from "./icons/ViteJS.astro"
+import CPlusPlus from "./icons/CPlusPlus.astro"
+import Astro from "./icons/Astro.astro"
+import Python from "./icons/Python.astro"
+import Kotlin from "./icons/Kotlin.astro"
+import Docker from "./icons/Docker.astro"
+import Blender from "./icons/Blender.astro"
+import Dart from "./icons/Dart.astro"
+import Figma from "./icons/Figma.astro"
+import Flutter from "./icons/Flutter.astro"
+import Illustrator from "./icons/Illustrator.astro"
+import JavaScript from "./icons/JavaScript.astro"
+import MySQL from "./icons/MySQL.astro"
+import Photoshop from "./icons/Photoshop.astro"
+import PostgreSQL from "./icons/PostgreSQL.astro"
+import PremierePro from "./icons/PremierePro.astro"
+import Tableau from "./icons/Tableau.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Tensorflow from "./icons/Tensorflow.astro"
+import ThreeJS from "./icons/ThreeJS.astro"
+import UnrealEngine from "./icons/UnrealEngine.astro"
+import WordPress from "./icons/WordPress.astro"
+import Cinema4D from "./public/Cinema4D.png"
+import Maya from "./public/Autodesk Maya.png"
+import MotionBuilder from "./public/Autodesk MotionBuilder.png"
+
+const TAGS = {
+  REACT: {
+    name: "React.js",
+    class: "bg-black text-white",
+    icon: ReactJS,
+  },
+  SASS: {
+    name: "Sass",
+    class: "bg-black text-white",
+    icon: Sass,
+  },
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  ZUSTAND: {
+    name: "Zustand",
+    class: "bg-[#003159] text-white",
+    icon: Zustand,
+  },
+  TYPESCRIPT: {
+    name: "Typescript",
+    class: "bg-[#003159] text-white",
+    icon: TypeScript,
+  },
+  NEST: {
+    name: "Nest.js",
+    class: "bg-[#003159] text-white",
+    icon: NestJS,
+  },
+  MONGO: {
+    name: "MongoDB",
+    class: "bg-[#003159] text-white",
+    icon: MongoDB,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-[#003159] text-white",
+    icon: NodeJS,
+  },
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-[#003159] text-white",
+    icon: ExpressJS,
+  },
+  MaterialUI: {
+    name: "Material.ui",
+    class: "bg-[#003159] text-white",
+    icon: MaterialUI,
+  },
+  VITE: {
+    name: "Vite.js",
+    class: "bg-[#003159] text-white",
+    icon: ViteJS,
+  },
+  CPLUSPLUS: {
+    name: "C++",
+    class: "bg-[#003159] text-white",
+    icon: CPlusPlus,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#003159] text-white",
+    icon: Astro,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#003159] text-white",
+    icon: Python,
+  },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "bg-[#003159] text-white",
+    icon: Kotlin,
+  },
+  DOCKER: {
+    name: "Docker",
+    class: "bg-[#003159] text-white",
+    icon: Docker,
+  },
+  BLENDER: {
+    name: "Blender",
+    class: "bg-[#003159] text-white",
+    icon: Blender,
+  },
+  DART: {
+    name: "Dart",
+    class: "bg-[#003159] text-white",
+    icon: Dart,
+  },
+  FIGMA: {
+    name: "Figma",
+    class: "bg-[#003159] text-white",
+    icon: Figma,
+  },
+  FLUTTER: {
+    name: "Flutter",
+    class: "bg-[#003159] text-white",
+    icon: Flutter,
+  },
+  ILLUSTRATOR: {
+    name: "Illustrator",
+    class: "bg-[#003159] text-white",
+    icon: Illustrator,
+  },
+  JAVASCRIPT: {
+    name: "Docker",
+    class: "bg-[#003159] text-white",
+    icon: Docker,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#003159] text-white",
+    icon: MySQL,
+  },
+  PHOTOSHOP: {
+    name: "Photoshop",
+    class: "bg-[#003159] text-white",
+    icon: Photoshop,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#003159] text-white",
+    icon: PostgreSQL,
+  },
+  PREMIERE: {
+    name: "PremierePro",
+    class: "bg-[#003159] text-white",
+    icon: PremierePro,
+  },
+  TABLEAU: {
+    name: "Tableau",
+    class: "bg-[#003159] text-white",
+    icon: Tableau,
+  },
+  TAILWIND: {
+    name: "Tailwind",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  TENSORFLOW: {
+    name: "tensorflow",
+    class: "bg-[#003159] text-white",
+    icon: Tensorflow,
+  },
+  THREEJS: {
+    name: "ThreeJS",
+    class: "bg-[#003159] text-white",
+    icon: ThreeJS,
+  },
+  UNREALENGINE: {
+    name: "UnrealEngine",
+    class: "bg-[#003159] text-white",
+    icon: UnrealEngine,
+  },
+  WORDPRESS: {
+    name: "WordPress",
+    class: "bg-[#003159] text-white",
+    icon: WordPress,
+  },
+  CINEMA4D: {
+    name: "Cinema4D",
+    class: "bg-[#003159] text-white",
+    icon: Cinema4D,
+  },
+  MAYA: {
+    name: "Maya",
+    class: "bg-[#003159] text-white",
+    icon: Maya,
+  },
+  MOTIONBUILDER: {
+    name: "MotionBuilder",
+    class: "bg-[#003159] text-white",
+    icon: MotionBuilder,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#003159] text-white",
+    icon: JavaScript,
+  },
+}
+---
+
+<section>
+  <p>Stack</p>
+  <div class="slider" id="slider">
+    <div class="content skills-container">
+      {Object.keys(TAGS).map((skill) => (
+        <div class="item" onclick={`showSkill('${skill}')`}>
+          {TAGS[skill].icon && typeof TAGS[skill].icon === "function" ? (
+            <TAGS[skill].icon class="icon" width="40" height="40" />
+          ) : (
+            <img src={TAGS[skill].icon} class="icon" alt={TAGS[skill].name} width="40" height="40" />
+          )}
+          <p class="text">{TAGS[skill].name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    margin-top: 5rem;
+  }
+
+  .slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; 
+    padding-top: 30px;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  p {
+    color: #999; 
+    text-align: center;
+    font-size: 2rem; 
+    font-weight: 700;
+  }
+
+  .item {
+    position: relative;
+    transition: transform 100ms;
+    flex: 1 0 100px;
+  }
+
+  .item .text {
+    display: none;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 14px;
+    z-index: 20;
+  }
+
+  .item:hover .text {
+    display: inline-block;
+  }
+
+  .item:hover {
+    transform: scale(1.1);
+  }
+</style>
