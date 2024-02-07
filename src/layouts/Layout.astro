@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
+import { ViewTransitions } from "astro:transitions"
 
 interface Props {
   title: string
@@ -11,27 +12,25 @@ const { description, title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
     <title>{title}</title>
+    <ViewTransitions />
   </head>
 
-  <body class="relative">
-    <div>
-      <div class="z-[-2] min-h-screen w-full border-10px-solid bg-[#4343E7]">
-        <div class="bg-[#4343E7]">
-        </div>
+  <body class="relative text-black dark:text-white">
+      <div class="min-h-screen flex flex-col justify-center items-center bg-[#4343E7]">
         <Header />
         <slot />
         <Footer />
       </div>
-    </div>
+      
 <style is:global>
   :root {
     color-scheme: light dark;
@@ -43,16 +42,28 @@ const { description, title } = Astro.props
   }
 
   body {
-    display: flex;
     flex-direction: column;
+    display: flex;
     min-height: 100vh;
-	  margin: 0;
     overscroll-behavior: none;
+    overflow-x: hidden;
   }
 
-  .border-10px-solid {
-    border: 25px solid #A5A5FF;
-  }
+      .min-h-screen {
+      width: calc(100% - 4rem);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      border: 25px solid #A5A5FF;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .min-h-screen {
+          width: 100%;
+          overflow-x: hidden;
+        }
+      }
 
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -77,6 +88,12 @@ const { description, title } = Astro.props
           background-color: rgb(229, 229, 229);
           border-radius: 9999px;
         }
+      }
+
+  #header-nav {
+        animation: blur linear both 0.5s;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
       }
 
       @media (prefers-color-scheme: dark) {
