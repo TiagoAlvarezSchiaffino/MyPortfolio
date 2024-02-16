@@ -1,43 +1,51 @@
+---
+import ThemeToggle from "./ThemeToggle.astro"
+
+const navItems = [
+  {
+    title: 'Work',
+    url: '/#work',
+    label: "work"
+  },
+  {
+    title: 'Projects',
+    url: '/#projects',
+    label: "projects"
+  },
+  {
+    title: 'About',
+    url: '/#about',
+    label: "about"
+  },
+  {
+    title: 'Skills',
+    url: '/#skills',
+    label: "skills"
+  },
+  {
+    title: 'Contact',
+    url: '/#contact',
+    label: "contact"
+  }
+]
+---
+
 <script>
 function createNavElement(link) {
   const aElement = document.createElement('a')
   aElement.classList.add(
-    'hover:bg-white/20',
-    'text-black',
-    'rounded-full',
+    'relative',
+    'block',
     'px-2',
+    'py-2',
     'transition',
-    'sm:px-3',
-    'text-sm',
-    'sm:text-base'
+    'hover:text-yellow-500', 
+    'dark:hover:text-yellow-400'
   )
   aElement.href = link.url
   aElement.textContent = link.title
   return aElement
 }
-
-const navItems = [
-  {
-    title: 'Home',
-    url: '/#home'
-  },
-  {
-    title: 'Work Experience',
-    url: '/#work'
-  },
-  {
-    title: 'Projects',
-    url: '/#projects'
-  },
-  {
-    title: 'About',
-    url: '/#about'
-  },
-  {
-    title: 'Contact',
-    url: '/#contact'
-  }
-]
 
 const $navContainer = document.querySelector('header nav')
 
@@ -71,38 +79,52 @@ window.addEventListener('scroll', () => {
 
   $navAElements.forEach((a, index) => {
     const isActive = index === activeSectionIndex
-    a.classList.toggle('bg-white/30', isActive)
+    if (isActive) {
+    a.classList.add('bg-white/30', 'dark:bg-gray-800/30');
+  } else {
+    a.classList.remove('bg-white/30', 'dark:bg-gray-800/30');
+  }
   })
 })
 </script>
+
 <header
-  class="sticky top-0 flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto z-20"
+  class="fixed top-0 flex justify-center items-center w-full mx-auto z-10 mt-2"
 >
   <nav class={`
     border border-black
-    px-2 py-1
-    flex flex-row
+    px-3
+    text-sm font-medium
+    flex justify-center items-center
     bg-white/50
     backdrop-blur-2xl
   `}
 >
-    <a 
-      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
-      href="/#home">Home</a>
-    
-    <a 
-      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
-      href="/#work">Work Experience</a>
-
-    <a 
-      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
-      href="/#projects">Projects</a>
-    <a 
-      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
-      href="/#about">About</a>
-
-    <a 
-      class="hover:bg-white/20 text-black rounded-full px-2 transition sm:px-3 text-sm sm:text-base"
-      href="/#contact">Contact</a>
+  {
+    navItems.map((link) => (
+      <a 
+        class="relative block hover:bg-white/20 dark:hover:bg-black/10 rounded-full px-2 py-2 transition sm:px-3  sm:text-base hover:text-yellow-500 dark:hover:text-yellow-400"
+        aria-label={link.label}
+        href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+    <ThemeToggle />
   </nav>
 </header>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur bg-gray-300/60 dark:bg-gray-800/60 ring-white/10;
+    }
+  }
+</style>
