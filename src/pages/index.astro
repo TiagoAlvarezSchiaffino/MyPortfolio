@@ -2,7 +2,9 @@
 import Aboutme from "@/components/AboutMe.astro"
 import Book from "@/components/icons/Book.astro"
 import Briefcase from "@/components/icons/Briefcase.astro"
+import Compass from "@/components/icons/Compass.astro"
 import Contact from "@/components/Contact.astro"
+import Controls from "@/components/Controls.astro"
 import CodeIcon from "@/components/icons/Code.astro"
 import Experience from "@/components/Experience.astro"
 import Hero from "@/components/Hero.astro"
@@ -16,48 +18,64 @@ import Skills from "@/components/Skills.astro"
 
 <Layout title="Tiago Alvarez Schiaffino Portfolio - Developer" description="Creating the best solution for the worst problem">
 	<main class="px-4">
-		<SectionContainer id="home" class="py-16 md:py-36">
+		<SectionContainer class="py-8 md:py-15">
+			<div class="commodore-text text-center my-12">
+				<div>
+					**** COMMODORE 64 BASIC V2 ****
+				</div>
+				<div>
+					64K RAM SYSTEM 38911 BASIC BYTES FREE
+				</div>
+				<div class="flex items-center justify-start">
+					READY<span class="blinking-dot">.</span>
+				</div>
+			</div>
 			<Hero>
-				</slot>
-			</Hero>
+			</slot>
+		</Hero>
 		</SectionContainer>
 
-		<div class="space-y-24">
+		<div class="space-y-12">
 		<SectionContainer id="work">
-		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
-			<Briefcase class="size-8" />
+		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black dark:text-white">
+			<Briefcase class="size-8 mr-3" />
 			 Work Experience
 		  </h2>
 		  <Experience />
 		</SectionContainer>
 	
 		<SectionContainer id="projects">
-		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
-			<CodeIcon class="size-7" />
+		  <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black dark:text-white">
+			<CodeIcon class="size-7 mr-3" />
 			 Projects
 		  </h2>
 		  <Projects />
 		</SectionContainer>
 
 		<SectionContainer id="about">
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-8 items-center text-black/80 dark:text-white">
-			  <Profile class="size-8" />
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-8 items-center text-black dark:text-white">
+			  <Profile class="size-8 mr-3" />
 			  About me
 			</h2>
 			<Aboutme />
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-8 items-center text-black dark:text-white">
+				<Compass class="size-8 mr-3" />
+				Narrative Voyage
+			  </h2>
+			  <Controls />
 		  </SectionContainer>
 
 		  <SectionContainer id="skills">
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
-			  <Book class="size-7" />
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black dark:text-white">
+			  <Book class="size-7 mr-3" />
 			  Skills
 			</h2>
 			<Skills />
 		  </SectionContainer>
 
 		  <SectionContainer id="contact">
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
-				<Messages class="size-7" />
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black dark:text-white">
+				<Messages class="size-7 mr-3" />
 			  Contact
 			</h2>
 			<Contact />
@@ -65,3 +83,23 @@ import Skills from "@/components/Skills.astro"
 		</div>
 	  </main>
 </Layout>
+
+<style>
+
+
+	.commodore-text {
+		color: #A5A5FF;
+		font-family: monospace;
+		font-size: 1.5em;
+	}
+
+	.blinking-dot {
+		animation: blink-animation 1s steps(1, end) infinite;
+	}
+
+	@keyframes blink-animation {
+		50% {
+			opacity: 0;
+		}
+	}
+</style>
