@@ -22,82 +22,82 @@ import LinkButton from "./LinkButton.astro"
 const TAGS = {
   REACT: {
     name: "React.js",
-    class: "bg-black text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: ReactJS,
   },
   SASS: {
     name: "Sass",
-    class: "bg-black text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: Sass,
   },
   NEXT: {
     name: "Next.js",
-    class: "bg-black text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: NextJS,
   },
   ZUSTAND: {
     name: "Zustand",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: Zustand,
   },
   TYPESCRIPT: {
     name: "Typescript",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: TypeScript,
   },
   NEST: {
     name: "Nest.js",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: NestJS,
   },
   MONGO: {
     name: "MongoDB",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: MongoDB,
   },
   NODE: {
     name: "Node.js",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: NodeJS,
   },
   EXPRESS: {
     name: "Express.js",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: ExpressJS,
   },
   MaterialUI: {
     name: "Material.ui",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: MaterialUI,
   },
   VITE: {
     name: "Vite.js",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: ViteJS,
   },
   CPLUSPLUS: {
     name: "C++",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: CPlusPlus,
   },
   ASTRO: {
     name: "Astro",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: Astro,
   },
   PYTHON: {
     name: "Python",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: Python,
   },
   KOTLIN: {
     name: "Kotlin",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: Kotlin,
   },
   DOCKER: {
     name: "Docker",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#F0F4F8] text-black dark:text-white dark:bg-[#2D3748]",
     icon: Docker,
   },
 }
@@ -125,33 +125,35 @@ const PROJECTS = [
 ---
 
 <div class="flex flex-col gap-y-16">
-{
-  PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-      <div class="w-full md:w-1/2 relative">
-        <div class="flex flex-col items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-          <img
-            loading="lazy"
-            class="rounded shadow-2xl shadow-white/10"
-            src={image}
-            alt={`Captura de pantalla del proyecto ${image}`}
-          />
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2 relative">
+          <div class="relative">
+            <div class="flex flex-col items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-4 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+              <img
+                loading="lazy"
+                class="rounded shadow-2xl shadow-white/10"
+                src={image}
+                alt={`Captura de pantalla del proyecto ${image}`}
+              />
+              <ul class="flex gap-x-2 flex-wrap left-0 right-0 bg-black dark:bg-white p-2 rounded-b-xl absolute bottom-0 opacity-0 transition duration-500 ease-in-out md:group-hover:opacity-100">
+                {tags.map((tag) => (
+                  <li>
+                    <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-2`}
+                    >
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-        <ul class="flex gap-x-2 flex-wrap mb-2 absolute bottom-0 left-0 right-0 bg-white p-2 rounded-t-xl">
-              {tags.map((tag) => (
-              <li>
-                <span
-                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-2`}
-                >
-                  <tag.icon class="size-4" />
-                  {tag.name}
-                </span>
-              </li>
-            ))}
-            </ul>
-      </div>
 
-      <div class="w-full md:w-1/2 md:max-w-lg">
+        <div class="w-full md:w-1/2 md:max-w-lg">
           <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
           <div class="flex flex-wrap mt-2">
             <p class="text-lg mb-4 text-pretty">{description}</p>
@@ -166,7 +168,7 @@ const PROJECTS = [
               {link && (
                 <LinkButton href={link}>
                   <Link class="size-4" />
-                  Preview
+                  Demo
                 </LinkButton>
               )}
             </footer>
