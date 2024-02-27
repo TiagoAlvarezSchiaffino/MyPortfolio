@@ -34,6 +34,17 @@ import WordPress from "./icons/WordPress.astro"
 import Cinema4D from "./public/Cinema4D.png"
 import Maya from "./public/Autodesk Maya.png"
 import MotionBuilder from "./public/Autodesk MotionBuilder.png"
+import Spanish from "@/components/languages/ES.astro"
+import English from "@/components/languages/EN.astro"
+import German from "@/components/languages/DE.astro"
+import Portuguese from "@/components/languages/PT.astro"
+
+const languages = [
+  { name: "Spanish", icon: Spanish },
+  { name: "English", icon: English },
+  { name: "German", icon: German },
+  { name: "Portuguese", icon: Portuguese }
+]
 
 const TAGS = {
   REACT: {
@@ -141,11 +152,6 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Illustrator,
   },
-  JAVASCRIPT: {
-    name: "Docker",
-    class: "bg-[#003159] text-white",
-    icon: Docker,
-  },
   MYSQL: {
     name: "MySQL",
     class: "bg-[#003159] text-white",
@@ -199,17 +205,17 @@ const TAGS = {
   CINEMA4D: {
     name: "Cinema4D",
     class: "bg-[#003159] text-white",
-    icon: Cinema4D,
+    icon: "/Cinema4D.png",
   },
   MAYA: {
     name: "Maya",
     class: "bg-[#003159] text-white",
-    icon: Maya,
+    icon: "/Autodesk Maya.png",
   },
   MOTIONBUILDER: {
     name: "MotionBuilder",
     class: "bg-[#003159] text-white",
-    icon: MotionBuilder,
+    icon: "/Autodesk MotionBuilder.png",
   },
   JAVASCRIPT: {
     name: "JavaScript",
@@ -219,74 +225,33 @@ const TAGS = {
 }
 ---
 
-<section>
-  <p>Stack</p>
-  <div class="slider" id="slider">
-    <div class="content skills-container">
-      {Object.keys(TAGS).map((skill) => (
-        <div class="item" onclick={`showSkill('${skill}')`}>
-          {TAGS[skill].icon && typeof TAGS[skill].icon === "function" ? (
-            <TAGS[skill].icon class="icon" width="40" height="40" />
+<section class="mt-5">
+  <p class="text-center text-gray-200 text-2xl font-bold dark:text-gray-800">Stack</p>
+  <div class="flex flex-wrap justify-center gap-6 mt-8">
+    {Object.keys(TAGS).map((skill, index) => (
+      <div class="flex flex-col items-center" onclick={`showSkill('${skill}')`}>
+        {typeof TAGS[skill].icon === "function" ? (
+          <TAGS[skill].icon class="w-12 h-12 bg-[#003159] rounded-full flex items-center justify-center text-white mb-2" />
+        ) : (
+          <img src={TAGS[skill].icon} class="w-12 h-12 bg-[#003159] rounded-full mb-2" alt={TAGS[skill].name} />
+        )}
+        <p class="text-center text-sm">{TAGS[skill].name}</p>
+      </div>
+    ))}
+  </div>
+  <div class="mt-8 text-center">
+    <p class="text-gray-200 text-xl font-bold dark:text-gray-800">Languages</p>
+    <ul class="mt-4 flex justify-center items-center space-x-6">
+      {languages.map((language, index) => (
+        <li class="flex flex-col items-center">
+          {typeof language.icon === "function" ? (
+            <language.icon class="w-16 h-16" />
           ) : (
-            <img src={TAGS[skill].icon} class="icon" alt={TAGS[skill].name} width="40" height="40" />
+            <img src={language.icon} class="w-16 h-16" alt={language.name} />
           )}
-          <p class="text">{TAGS[skill].name}</p>
-        </div>
+          <span>{language.name}</span>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </section>
-
-<style>
-  section {
-    margin-top: 5rem;
-  }
-
-  .slider {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px; 
-    padding-top: 30px;
-  }
-  
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  p {
-    color: #999; 
-    text-align: center;
-    font-size: 2rem; 
-    font-weight: 700;
-  }
-
-  .item {
-    position: relative;
-    transition: transform 100ms;
-    flex: 1 0 100px;
-  }
-
-  .item .text {
-    display: none;
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    font-size: 14px;
-    z-index: 20;
-  }
-
-  .item:hover .text {
-    display: inline-block;
-  }
-
-  .item:hover {
-    transform: scale(1.1);
-  }
-</style>
