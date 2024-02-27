@@ -226,32 +226,38 @@ const TAGS = {
 ---
 
 <section class="mt-5">
-  <p class="text-center text-gray-200 text-2xl font-bold dark:text-gray-800">Stack</p>
+  <p class="text-center text-white text-xl md:text-2xl font-bold dark:text-black">Stack</p>
   <div class="flex flex-wrap justify-center gap-6 mt-8">
     {Object.keys(TAGS).map((skill, index) => (
-      <div class="flex flex-col items-center" onclick={`showSkill('${skill}')`}>
+      <div class="flex flex-col items-center relative" key={index} onclick={(event) => event.stopPropagation()}>
         {typeof TAGS[skill].icon === "function" ? (
           <TAGS[skill].icon class="w-12 h-12 bg-[#003159] rounded-full flex items-center justify-center text-white mb-2" />
         ) : (
           <img src={TAGS[skill].icon} class="w-12 h-12 bg-[#003159] rounded-full mb-2" alt={TAGS[skill].name} />
         )}
-        <p class="text-center text-sm">{TAGS[skill].name}</p>
+        <p class="text-center text-xs text-white bg-black bg-opacity-75 dark:text-black dark:bg-white dark:bg-opacity-75 rounded-md py-1 px-2 opacity-0 transition-opacity duration-300 absolute bottom-0 transform translate-y-6 pointer-events-none">{TAGS[skill].name}</p>
       </div>
     ))}
   </div>
   <div class="mt-8 text-center">
-    <p class="text-gray-200 text-xl font-bold dark:text-gray-800">Languages</p>
+    <p class="text-white text-xl md:text-2xl font-bold dark:text-black">Languages</p>
     <ul class="mt-4 flex justify-center items-center space-x-6">
       {languages.map((language, index) => (
-        <li class="flex flex-col items-center">
+        <li class="flex flex-col items-center relative" key={index} onclick={(event) => event.stopPropagation()}>
           {typeof language.icon === "function" ? (
             <language.icon class="w-16 h-16" />
           ) : (
             <img src={language.icon} class="w-16 h-16" alt={language.name} />
           )}
-          <span>{language.name}</span>
+          <p class="text-xs text-white bg-black bg-opacity-75 dark:text-black dark:bg-white dark:bg-opacity-75 rounded-md py-1 px-2 opacity-0 transition-opacity duration-300  translate-y-1 pointer-events-none">{language.name}</p>
         </li>
       ))}
     </ul>
   </div>
 </section>
+
+<style>
+  .flex-col:hover p {
+    opacity: 1;
+  }
+</style>
