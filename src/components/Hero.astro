@@ -1,0 +1,53 @@
+---
+const personalImageAlt = "Tiago Alvarez Schiaffino"
+import AR from "@/components/languages/AR.astro"
+import GitHub from "@/components/icons/GitHub.astro"
+import LinkedIn from "@/components/icons/LinkedIn.astro"
+import Mail from "@/components/icons/Mail.astro"
+import SocialPill from "@/components/SocialPill.astro"
+---
+
+<div class="max-w-xl">
+  <div class="flex gap-4 mb-4">
+    <img
+      class="rounded-full shadow-lg size-16"
+      src="/UserPhoto.png"
+      alt={personalImageAlt}
+      aria-label="Tiago profile picture"
+    />
+    <p class="flex items-center text-white font-bold dark:text-gray-900">
+      Open to relocation.
+      <AR class="inline-block w-4 h-4 ml-1" />
+    </p>
+  </div>
+  <blockquote
+    class="text-xs text-pretty text-gray-950 italic dark:text-gray-300" cite="https://en.wikiquote.org/wiki/Alan_Perlis">
+      "Don't feel as if the key to successful computing is only in your hands. What's in your hands, I think and hope, is intelligence: the ability to see the machine as more than when you were first led up to it, that you can make it more." - Alan J. Perlis
+  </blockquote>
+  <h1
+    class="font-bold text-4xl tracking-tight mt-2 text-white sm:text-5xl dark:text-gray-950"
+  >
+    Hey, everyone. Tiago, here for you!
+  </h1>
+  <p
+    class="text-white-200/90 mt-6 text-xl font-semibold text-gray-900 dark:[&>strong]:text-yellow [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+  >
+    Dedicated to doing... <strong
+      >Full-Stack Developer, Game Animator & Developer and Video Editor.</strong
+    > From Buenos Aires, Argentina.Live to Code.
+  </p>
+  <nav class="flex gap-4 mt-8 flex-wrap items-center">
+    <SocialPill href="https://www.linkedin.com/in/tiago-alvarez-schiaffino/" aria-label="LinkedIn">
+      <LinkedIn class="size-4" />
+      <span class="ml-1">LinkedIn</span>
+    </SocialPill>
+    <SocialPill href="https://github.com/TiagoAlvarezSchiaffino" aria-label="GitHub">
+      <GitHub class="size-4" />
+       <span class="ml-1">GitHub</span>
+    </SocialPill>
+    <SocialPill href="mailto:t.alvarezschiaffino@gmail.com" aria-label="Mail">
+      <Mail class="size-4" />
+      <span class="ml-1">Contact me</span>
+    </SocialPill>
+  </nav>
+</div>
