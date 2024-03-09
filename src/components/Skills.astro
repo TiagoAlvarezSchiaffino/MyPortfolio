@@ -11,7 +11,7 @@ import ExpressJS from "./icons/ExpressJS.astro"
 import MaterialUI from "./icons/MaterialUI.astro"
 import ViteJS from "./icons/ViteJS.astro"
 import CPlusPlus from "./icons/CPlusPlus.astro"
-import Astro from "./icons/Astro.astro"
+import Astro from "./icons/AstroIcon.astro"
 import Python from "./icons/Python.astro"
 import Kotlin from "./icons/Kotlin.astro"
 import Docker from "./icons/Docker.astro"
@@ -46,196 +46,196 @@ const languages = [
   { name: "Portuguese", icon: Portuguese }
 ]
 
-const TAGS = {
-  REACT: {
+const TAGS = [
+  {
     name: "React.js",
     class: "bg-black text-white",
     icon: ReactJS,
   },
-  SASS: {
+  {
     name: "Sass",
     class: "bg-black text-white",
     icon: Sass,
   },
-  NEXT: {
+  {
     name: "Next.js",
     class: "bg-black text-white",
     icon: NextJS,
   },
-  ZUSTAND: {
+  {
     name: "Zustand",
     class: "bg-[#003159] text-white",
     icon: Zustand,
   },
-  TYPESCRIPT: {
+  {
     name: "Typescript",
     class: "bg-[#003159] text-white",
     icon: TypeScript,
   },
-  NEST: {
+  {
     name: "Nest.js",
     class: "bg-[#003159] text-white",
     icon: NestJS,
   },
-  MONGO: {
+  {
     name: "MongoDB",
     class: "bg-[#003159] text-white",
     icon: MongoDB,
   },
-  NODE: {
+  {
     name: "Node.js",
     class: "bg-[#003159] text-white",
     icon: NodeJS,
   },
-  EXPRESS: {
+  {
     name: "Express.js",
     class: "bg-[#003159] text-white",
     icon: ExpressJS,
   },
-  MaterialUI: {
+  {
     name: "Material.ui",
     class: "bg-[#003159] text-white",
     icon: MaterialUI,
   },
-  VITE: {
+  {
     name: "Vite.js",
     class: "bg-[#003159] text-white",
     icon: ViteJS,
   },
-  CPLUSPLUS: {
+  {
     name: "C++",
     class: "bg-[#003159] text-white",
     icon: CPlusPlus,
   },
-  ASTRO: {
+  {
     name: "Astro",
     class: "bg-[#003159] text-white",
     icon: Astro,
   },
-  PYTHON: {
+  {
     name: "Python",
     class: "bg-[#003159] text-white",
     icon: Python,
   },
-  KOTLIN: {
+  {
     name: "Kotlin",
     class: "bg-[#003159] text-white",
     icon: Kotlin,
   },
-  DOCKER: {
+  {
     name: "Docker",
     class: "bg-[#003159] text-white",
     icon: Docker,
   },
-  BLENDER: {
+  {
     name: "Blender",
     class: "bg-[#003159] text-white",
     icon: Blender,
   },
-  DART: {
+  {
     name: "Dart",
     class: "bg-[#003159] text-white",
     icon: Dart,
   },
-  FIGMA: {
+  {
     name: "Figma",
     class: "bg-[#003159] text-white",
     icon: Figma,
   },
-  FLUTTER: {
+  {
     name: "Flutter",
     class: "bg-[#003159] text-white",
     icon: Flutter,
   },
-  ILLUSTRATOR: {
+  {
     name: "Illustrator",
     class: "bg-[#003159] text-white",
     icon: Illustrator,
   },
-  MYSQL: {
+  {
     name: "MySQL",
     class: "bg-[#003159] text-white",
     icon: MySQL,
   },
-  PHOTOSHOP: {
+  {
     name: "Photoshop",
     class: "bg-[#003159] text-white",
     icon: Photoshop,
   },
-  POSTGRESQL: {
+  {
     name: "PostgreSQL",
     class: "bg-[#003159] text-white",
     icon: PostgreSQL,
   },
-  PREMIERE: {
+  {
     name: "PremierePro",
     class: "bg-[#003159] text-white",
     icon: PremierePro,
   },
-  TABLEAU: {
+  {
     name: "Tableau",
     class: "bg-[#003159] text-white",
     icon: Tableau,
   },
-  TAILWIND: {
+  {
     name: "Tailwind",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
-  TENSORFLOW: {
+  {
     name: "tensorflow",
     class: "bg-[#003159] text-white",
     icon: Tensorflow,
   },
-  THREEJS: {
+  {
     name: "ThreeJS",
     class: "bg-[#003159] text-white",
     icon: ThreeJS,
   },
-  UNREALENGINE: {
+  {
     name: "UnrealEngine",
     class: "bg-[#003159] text-white",
     icon: UnrealEngine,
   },
-  WORDPRESS: {
+  {
     name: "WordPress",
     class: "bg-[#003159] text-white",
     icon: WordPress,
   },
-  CINEMA4D: {
+  {
     name: "Cinema4D",
     class: "bg-[#003159] text-white",
     icon: "/Cinema4D.png",
   },
-  MAYA: {
+  {
     name: "Maya",
     class: "bg-[#003159] text-white",
     icon: "/Autodesk Maya.png",
   },
-  MOTIONBUILDER: {
+  {
     name: "MotionBuilder",
     class: "bg-[#003159] text-white",
     icon: "/Autodesk MotionBuilder.png",
   },
-  JAVASCRIPT: {
+  {
     name: "JavaScript",
     class: "bg-[#003159] text-white",
     icon: JavaScript,
   },
-}
+]
 ---
 
 <section class="mt-5">
   <p class="text-center text-white text-xl md:text-2xl font-bold dark:text-black">Stack</p>
   <div class="flex flex-wrap justify-center gap-6 mt-8">
-    {Object.keys(TAGS).map((skill, index) => (
-      <div class="flex flex-col items-center relative" key={index} onclick={(event) => event.stopPropagation()}>
-        {typeof TAGS[skill].icon === "function" ? (
-          <TAGS[skill].icon class="w-12 h-12 bg-[#003159] rounded-full flex items-center justify-center text-white mb-2" />
+    {TAGS.map((skill, index) => (
+      <div class="flex flex-col items-center relative" id={`tag-${index}`}>
+        {typeof skill.icon === "function" ? (
+          <skill.icon class="w-12 h-12 bg-[#003159] rounded-full flex items-center justify-center text-white mb-2" />
         ) : (
-          <img src={TAGS[skill].icon} class="w-12 h-12 bg-[#003159] rounded-full mb-2" alt={TAGS[skill].name} />
+          <img src={skill.icon} class="w-12 h-12 bg-[#003159] rounded-full mb-2" alt={skill.name} />
         )}
-        <p class="text-center text-xs text-white bg-black bg-opacity-75 dark:text-black dark:bg-white dark:bg-opacity-75 rounded-md py-1 px-2 opacity-0 transition-opacity duration-300 absolute bottom-0 transform translate-y-6 pointer-events-none">{TAGS[skill].name}</p>
+        <p class="text-center text-xs text-white bg-black bg-opacity-75 dark:text-black dark:bg-white dark:bg-opacity-75 rounded-md py-1 px-2 opacity-0 transition-opacity duration-300 absolute bottom-0 transform translate-y-6 pointer-events-none">{skill.name}</p>
       </div>
     ))}
   </div>
@@ -243,7 +243,7 @@ const TAGS = {
     <p class="text-white text-xl md:text-2xl font-bold dark:text-black">Languages</p>
     <ul class="mt-4 flex justify-center items-center space-x-6">
       {languages.map((language, index) => (
-        <li class="flex flex-col items-center relative" key={index} onclick={(event) => event.stopPropagation()}>
+        <li class="flex flex-col items-center relative" id={`language-${index}`}>
           {typeof language.icon === "function" ? (
             <language.icon class="w-16 h-16" />
           ) : (
