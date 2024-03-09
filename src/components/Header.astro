@@ -31,61 +31,44 @@ const navItems = [
 ---
 
 <script>
-function createNavElement(link) {
-  const aElement = document.createElement('a')
-  aElement.classList.add(
-    'relative',
-    'block',
-    'px-2',
-    'py-2',
-    'transition',
-    'hover:text-yellow-500', 
-    'dark:hover:text-yellow-400'
-  )
-  aElement.href = link.url
-  aElement.textContent = link.title
-  return aElement
-}
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll("header nav a")
 
-const $navContainer = document.querySelector('header nav')
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("'bg-white/30', 'dark:bg-gray-800/30'")
+            } else {
+              item.classList.remove("'bg-white/30', 'dark:bg-gray-800/30'")
+            }
+          })
+        }
+      })
+    }
 
-if ($navContainer && $navContainer.children.length === 0) {
-  navItems.forEach(link => {
-    const navElement = createNavElement(link)
-    $navContainer.appendChild(navElement)
-  })
-}
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
 
-const $navAElements: Element[] = [...document.querySelectorAll('header nav a')]
-const sectionElements: HTMLDivElement[] = $navAElements.map(a => {
-  const selectionForSection = a.getAttribute('href')?.substring(1)
-  return document.querySelector(selectionForSection || '') as HTMLDivElement
-})
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
 
-window.addEventListener('scroll', () => {
-  let activeSectionIndex = -1
-
-  sectionElements.forEach((sectionElement, index) => {
-    if (!sectionElement) return
-
-    const selectionTop = sectionElement.offsetTop - 150
-    const selectionBottom = selectionTop + sectionElement.clientHeight
-    const isSectionActive = window.scrollY >= selectionTop && window.scrollY < selectionBottom
-
-    if (isSectionActive) {
-      activeSectionIndex = index
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
     }
   })
-
-  $navAElements.forEach((a, index) => {
-    const isActive = index === activeSectionIndex
-    if (isActive) {
-    a.classList.add('bg-white/30', 'dark:bg-gray-800/30');
-  } else {
-    a.classList.remove('bg-white/30', 'dark:bg-gray-800/30');
-  }
-  })
-})
 </script>
 
 <header
@@ -103,7 +86,7 @@ window.addEventListener('scroll', () => {
   {
     navItems.map((link) => (
       <a 
-        class="relative block hover:bg-white/20 dark:hover:bg-black/10 rounded-full px-2 py-2 transition sm:px-3  sm:text-base hover:text-yellow-500 dark:hover:text-yellow-400"
+        class="relative block hover:bg-white/20 dark:hover:bg-black/10 rounded-full px-2 py-2 transition  hover:text-yellow-500 dark:hover:text-yellow-400"
         aria-label={link.label}
         href={link.url}
         >
@@ -124,7 +107,7 @@ window.addEventListener('scroll', () => {
 
   @keyframes nav-shadown {
     to {
-      @apply shadow-lg ring-1 backdrop-blur bg-gray-300/60 dark:bg-gray-800/60 ring-white/10;
+      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-300/60 bg-white/50 ring-white/10;
     }
   }
 </style>
