@@ -217,7 +217,11 @@ const PROJECTS = [
                     <span
                       class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-2`}
                     >
-                      <tag.icon class="size-4" />
+                    {typeof tag.icon === "function" ? (
+                      <tag.icon class="w-4 h-4 rounded-full flex items-center justify-center"/>
+                    ) : (
+                      <img src={tag.icon} class="w-4 h-4 rounded-full mb-2"/>
+                    )}
                       {tag.name}
                     </span>
                   </li>
